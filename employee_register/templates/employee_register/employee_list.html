@@ -1,6 +1,33 @@
 {% extends "employee_register/base.html" %}
 
 {% block content %}
-<p> We will show a list of employee from the tables </p>
+
+<table class="table table-borderless"> 
+    <thead class="border-bottom font-weight-bold">
+        <tr>
+            <td>Full Name </td>
+            <td>Position</td>
+            <td>Mobile</td>
+            <td>  </td>
+
+        </tr>
+
+
+    </thead>
+<tbody>
+{% for employee in employee_list %}
+<tr>
+    <td>{{employee.fullname}}</td>
+    <td>{{employee.position}}</td>
+    <td>{{employee.mobile}}</td>
+    <td> 
+        <a href="{% url 'employee_update' employee.id %}" class="btn text-secondary px-0">
+            <i class="far fa-edit fa-lg"></i>
+        </a>
+    </td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
 
 {% endblock content %}
